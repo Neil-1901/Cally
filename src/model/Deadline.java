@@ -2,30 +2,27 @@ package model;
 
 import java.time.LocalDateTime;
 
+/**
+ * Represents a deadline, a specific type of Event.
+ */
 public class Deadline extends Event {
 
-    private String course;
-
-    public Deadline(String title, String description, LocalDateTime startTime, int durationMinutes, String course) {
-        super(title, description, startTime, durationMinutes);
-        this.course = course;
+    public Deadline(String eventId, String title, String description,
+                    LocalDateTime startTime, int durationMinutes, String detail) {
+        super(eventId, title, description, startTime, durationMinutes, detail);
     }
-
-    public Deadline(String eventId, String title, String description, LocalDateTime startTime, int durationMinutes, String course) {
-        super(eventId, title, description, startTime, durationMinutes);
-        this.course = course;
-    }
-
-    public String getCourse() { return course; }
-    public void setCourse(String course) { this.course = course; }
 
     @Override
     public String getType() {
-        return "DEADLINE";
+        return "Deadline";
     }
 
-    @Override
-    public String getDetail() {
-        return course;
+    /**
+     * Convenience getter for detail, representing a Course for a Deadline.
+     *
+     * @return The event course/subject.
+     */
+    public String getCourse() {
+        return getDetail();
     }
 }

@@ -2,30 +2,27 @@ package model;
 
 import java.time.LocalDateTime;
 
+/**
+ * Represents an appointment, a specific type of Event.
+ */
 public class Appointment extends Event {
 
-    private String location;
-
-    public Appointment(String title, String description, LocalDateTime startTime, int durationMinutes, String location) {
-        super(title, description, startTime, durationMinutes);
-        this.location = location;
+    public Appointment(String eventId, String title, String description,
+                       LocalDateTime startTime, int durationMinutes, String detail) {
+        super(eventId, title, description, startTime, durationMinutes, detail);
     }
-
-    public Appointment(String eventId, String title, String description, LocalDateTime startTime, int durationMinutes, String location) {
-        super(eventId, title, description, startTime, durationMinutes);
-        this.location = location;
-    }
-
-    public String getLocation() { return location; }
-    public void setLocation(String location) { this.location = location; }
 
     @Override
     public String getType() {
-        return "APPOINTMENT";
+        return "Appointment";
     }
 
-    @Override
-    public String getDetail() {
-        return location;
+    /**
+     * Convenience getter for detail, representing Location for an Appointment.
+     *
+     * @return The event location.
+     */
+    public String getLocation() {
+        return getDetail();
     }
 }

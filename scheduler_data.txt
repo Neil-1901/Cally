@@ -1,2 +1,0 @@
-# Event Scheduler Data - Format: ID;Type;Title;Description;StartTime;Duration;Detail
-27aead20-f6c1-4d2d-aa84-722d457712cb;APPOINTMENT;Well well well;;2025-10-28 20:39;60;
